@@ -10,17 +10,28 @@
     <dl>
         <dt>referer</dt>
         <dd id="referer"></dd>
+        <dt>window.opener</dt>
+        <dd id="opener"></dd>
     </dl>
-    <button id="button">index.htmlの操作</button>
+    <div>
+        <button id="button">index.htmlの操作</button>
+    </div>
+    <div>
+        <a href="./index.html">トップに戻る</a>
+    </div>
     <script>
         document
             .getElementById('referer')
             .innerText = document.referrer;
         document
+            .getElementById('opener')
+            .innerText = window.opener ? 'あり' : 'なし';
+        document
             .getElementById('button')
             .addEventListener('click', function(ev) {
                 if (window.opener) {
-                    alert('window.opener あり');
+                    alert('元の画面の操作')
+                    window.opener.location.href = './dummy.html'
                 } else {
                     alert('window.opener なし');
                 }

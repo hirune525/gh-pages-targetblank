@@ -10,27 +10,71 @@
 
 <body>
     <div>
+        <p>パターン①</p>
+        <p>
+            <a href="./target.html">
+                &lt;a href="./target.html"&gt;
+            </a>
+        </p>
         <p>
             <a href="./target.html" target="_blank">
-                window.openなし、rel=noopenerなし
+                &lt;a href="./target.html" target="_blank"&gt;
+            </a>
+        </p>
+        <p>
+            <a href="./target.html" rel="noopener">
+                &lt;a href="./target.html" rel="noopener"&gt;
             </a>
         </p>
         <p>
             <a href="./target.html" target="_blank" rel="noopener">
-                window.openなし、rel=noopenerあり
+                &lt;a href="./target.html" target="_blank" rel="noopener"&gt;
+            </a>
+        </p>
+    </div>
+    <div>
+        <p>パターン②</p>
+        <p>
+            <a href="javascript:window.open('./target.html')">
+                &lt;a href="javascript:window.open('./target.html')"&gt;
             </a>
         </p>
         <p>
-            <a href="javascript:window.open('./target.html')"
-                target="_blank">
-                window.openあり、rel=noopenerなし
+            <a href="javascript:window.open('./target.html')" target="_blank">
+                &lt;a href="javascript:window.open('./target.html')" target="_blank"&gt;
             </a>
         </p>
         <p>
-            <a href="javascript:window.open('./target.html')"
-                target="_blank"
-                rel="noopener">
-                window.openあり、rel=noopenerあり
+            <a href="javascript:window.open('./target.html')" rel="noopener">
+                &lt;a href="javascript:window.open('./target.html')" rel="noopener"&gt;
+            </a>
+        </p>
+        <p>
+            <a href="javascript:window.open('./target.html')" target="_blank" rel="noopener">
+                &lt;a href="javascript:window.open('./target.html')" target="_blank" rel="noopener"&gt;
+            </a>
+        </p>
+    </div>
+    <div>
+        <p>パターン③</p>
+        <p>
+            <a href="javascript:window.open('./target.html', null, null)">
+                &lt;a href="javascript:window.open('./target.html', null, null)"&gt;
+            </a>
+        </p>
+        <p>
+            <a href="javascript:window.open('./target.html', '_blank', null)">
+                &lt;a href="javascript:window.open('./target.html', '_blank', null)"&gt;
+            </a>
+        </p>
+        <p>
+            <a href="javascript:window.open('./target.html', null, 'noopener')">
+                &lt;a href="javascript:window.open('./target.html', null, 'noopener')"&gt;
+            </a>
+        </p>
+        <p>
+            <a href="javascript:window.open('./target.html', '_blank', 'noopener')">
+                &lt;a href="javascript:window.open('./target.html', '_blank', 'noopener')"&gt;
             </a>
         </p>
     </div>
