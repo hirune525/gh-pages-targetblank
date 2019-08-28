@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>target="_blank" テスト</title>
+</head>
+
+<body>
+    <div>
+        <p>
+            <a href="./target.html" target="_blank">
+                window.openなし、rel=noopenerなし
+            </a>
+        </p>
+        <p>
+            <a href="./target.html" target="_blank" rel="noopener">
+                window.openなし、rel=noopenerあり
+            </a>
+        </p>
+        <p>
+            <a href="javascript:window.open('./target.html')"
+                target="_blank">
+                window.openあり、rel=noopenerなし
+            </a>
+        </p>
+        <p>
+            <a href="javascript:window.open('./target.html')"
+                target="_blank"
+                rel="noopener">
+                window.openあり、rel=noopenerあり
+            </a>
+        </p>
+    </div>
+</body>
+
+</html>
