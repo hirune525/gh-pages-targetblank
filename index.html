@@ -6,78 +6,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>target="_blank" テスト</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-top: 1px solid rgb(0, 0, 0);
+            border-left: 1px solid rgb(0, 0, 0);
+        }
+
+        th,
+        td {
+            padding: 3px;
+            border-right: 1px solid rgb(0, 0, 0);
+            border-bottom: 1px solid rgb(0, 0, 0);
+        }
+
+    </style>
 </head>
 
 <body>
     <div>
-        <p>パターン①</p>
-        <p>
-            <a href="./target.html">
-                &lt;a href="./target.html"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="./target.html" target="_blank">
-                &lt;a href="./target.html" target="_blank"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="./target.html" rel="noopener">
-                &lt;a href="./target.html" rel="noopener"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="./target.html" target="_blank" rel="noopener">
-                &lt;a href="./target.html" target="_blank" rel="noopener"&gt;
-            </a>
-        </p>
+        <dl>
+            <dt>useragent</dt>
+            <dd id="useragent"></dd>
+        </dl>
     </div>
     <div>
-        <p>パターン②</p>
-        <p>
-            <a href="javascript:window.open('./target.html')">
-                &lt;a href="javascript:window.open('./target.html')"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="javascript:window.open('./target.html')" target="_blank">
-                &lt;a href="javascript:window.open('./target.html')" target="_blank"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="javascript:window.open('./target.html')" rel="noopener">
-                &lt;a href="javascript:window.open('./target.html')" rel="noopener"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="javascript:window.open('./target.html')" target="_blank" rel="noopener">
-                &lt;a href="javascript:window.open('./target.html')" target="_blank" rel="noopener"&gt;
-            </a>
-        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>pattern</th>
+                    <th>href</th>
+                    <th>target</th>
+                    <th>rel</th>
+                    <th>onclick</th>
+                    <th>link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4">hrefにリンクを記載</td>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="./target.html">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>_blank</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="./target.html" target="_blank">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>noopener</td>
+                    <td>なし</td>
+                    <td><a href="./target.html" rel="noopener">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>_blank</td>
+                    <td>noopener</td>
+                    <td>なし</td>
+                    <td><a href="./target.html" target="_blank" rel="noopener">クリック</a></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="4">hrefにwindow.openを記載、属性で設定</td>
+                    <td>javascript:window.open('./target.html')</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html')">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>javascript:window.open('./target.html')</td>
+                    <td>_blank</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html')" target="_blank">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>javascript:window.open('./target.html')</td>
+                    <td>なし</td>
+                    <td>noopener</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html')" rel="noopener">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>javascript:window.open('./target.html')</td>
+                    <td>_blank</td>
+                    <td>noopener</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html')" target="_blank" rel="noopener">クリック</a></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="4">hrefにwindow.openを記載、引数で設定</td>
+                    <td>javascript:window.open('./target.html', null, null)</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html', null, null)">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>javascript:window.open('./target.html', '_blank', null)</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html', '_blank', null)">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>javascript:window.open('./target.html', null, 'noopener')</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html', null, 'noopener')">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>javascript:window.open('./target.html', '_blank', 'noopener')</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td><a href="javascript:window.open('./target.html', '_blank', 'noopener')">クリック</a></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="4">onclickにwindow.openを記載、属性で設定</td>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>window.open(href);return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href);return false;">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>_blank</td>
+                    <td>なし</td>
+                    <td>window.open(href);return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href);return false;" target="_blank">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>noopener</td>
+                    <td>window.open(href);return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href);return false;" rel="noopener">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>_blank</td>
+                    <td>noopener</td>
+                    <td>window.open(href);return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href);return false;" target="_blank"
+                            rel="noopener">クリック</a></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="4">onclickにwindow.openを記載、引数で設定</td>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>window.open(href, null, null);return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href, null, null);return false;">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>window.open(href, '_blank', null);return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href, '_blank', null);return false;">クリック</a></td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>window.open(href, null, 'noopener');return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href, null, 'noopener');return false;">クリック</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>./target.html</td>
+                    <td>なし</td>
+                    <td>なし</td>
+                    <td>window.open(href, '_blank', 'noopener');return false;</td>
+                    <td><a href="./target.html" onclick="window.open(href, '_blank', 'noopener');return false;">クリック</a>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
     </div>
-    <div>
-        <p>パターン③</p>
-        <p>
-            <a href="javascript:window.open('./target.html', null, null)">
-                &lt;a href="javascript:window.open('./target.html', null, null)"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="javascript:window.open('./target.html', '_blank', null)">
-                &lt;a href="javascript:window.open('./target.html', '_blank', null)"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="javascript:window.open('./target.html', null, 'noopener')">
-                &lt;a href="javascript:window.open('./target.html', null, 'noopener')"&gt;
-            </a>
-        </p>
-        <p>
-            <a href="javascript:window.open('./target.html', '_blank', 'noopener')">
-                &lt;a href="javascript:window.open('./target.html', '_blank', 'noopener')"&gt;
-            </a>
-        </p>
-    </div>
+
+    <script>
+        document
+            .getElementById('useragent')
+            .innerText = window.navigator.userAgent;
+    </script>
 </body>
 
 </html>

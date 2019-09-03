@@ -8,6 +8,8 @@
 </head>
 <body>
     <dl>
+        <dt>useragent</dt>
+        <dd id="useragent"></dd>
         <dt>referer</dt>
         <dd id="referer"></dd>
         <dt>window.opener</dt>
@@ -21,8 +23,11 @@
     </div>
     <script>
         document
+            .getElementById('useragent')
+            .innerText = window.navigator.userAgent;
+        document
             .getElementById('referer')
-            .innerText = document.referrer;
+            .innerText = document.referrer ? document.referrer : 'なし';
         document
             .getElementById('opener')
             .innerText = window.opener ? 'あり' : 'なし';
